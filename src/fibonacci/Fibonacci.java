@@ -103,7 +103,8 @@ public class Fibonacci {
 		t.go(timeout);
 
 		if (n <= 1) {
-			t.iteration(n);			
+			t.iteration(n);	
+			t.stopt();
 			return BigInteger.valueOf(n); // Base cases: Fibonacci of 0 is 0, and Fibonacci of 1 is 1
 		} else {
 			BigInteger fibNMinus2 = BigInteger.ZERO;
