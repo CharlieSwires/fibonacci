@@ -30,7 +30,7 @@ public class Fibonacci {
 		n = 100; // Change this to the desired Fibonacci number you want to find
 		fibonacciNumberBI = calculateFibonacciI(n);
 		System.out.println("The " + n + "th Fibonacci number is: " + fibonacciNumberBI);
-		n = 2368149; // Change this to the desired Fibonacci number you want to find
+		n = 2329431; // Change this to the desired Fibonacci number you want to find
 		fibonacciNumberBI = calculateFibonacciITO(n,1L*60L);
 		System.out.println("The " + n + "th Fibonacci number is: " + fibonacciNumberBI);
 	}
@@ -99,14 +99,11 @@ public class Fibonacci {
 		f = new Fibonacci();
 		t = f.new MyTimer();
 
-		t.start();
-		t.go(timeout);
-
 		if (n <= 1) {
-			t.iteration(n);	
-			t.stopt();
 			return BigInteger.valueOf(n); // Base cases: Fibonacci of 0 is 0, and Fibonacci of 1 is 1
 		} else {
+			t.start();
+			t.go(timeout);
 			BigInteger fibNMinus2 = BigInteger.ZERO;
 			BigInteger fibNMinus1 = BigInteger.ONE;
 			BigInteger fibonacci = BigInteger.ZERO;
@@ -118,7 +115,8 @@ public class Fibonacci {
 				fibNMinus1 = fibonacci;
 			}
 			t.stopt();
-
+			t=null;
+			f=null;
 			return fibonacci;
 		}
 	}
